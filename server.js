@@ -13,7 +13,11 @@ io.on('connection', function(socket) {
     
     socket.on('draw', function(position) {
         socket.broadcast.emit('draw', position);
-        console.log('receiving data');
+    })
+    
+    socket.on('guess', function(guess) {
+        console.log('received guess: ', guess);
+        socket.broadcast.emit('guess', guess);
     })
 })
 

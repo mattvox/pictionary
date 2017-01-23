@@ -26,6 +26,11 @@ h1 {
     text-align: center;
     padding: 10px;
 }
+    
+#guessed {
+    text-align: center;
+    padding: 20px;
+}
 
 canvas {
     width: 800px;
@@ -42,7 +47,13 @@ canvas {
 <script src="/socket.io/socket.io.js"></script>
 <script src="main.js"></script>
 
-<div id="main">
-    <h1>Pictionary</h1>
-    <canvas id="canvas"></canvas>
+<h1>Pictionary</h1>
+<div id="top-message">
+    <div id="guess">
+        Make a guess: <input type="text">
+    </div>
 </div>
+<canvas id="canvas"></canvas>
+
+
+<div id="guessed"></div>
