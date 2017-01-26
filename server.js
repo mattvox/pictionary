@@ -9,7 +9,8 @@ var server = http.Server(app);
 var io = socket_io(server);
 
 io.on('connection', function(socket) {
-    console.log('Client connected');
+    console.log(socket.id, 'connected');
+    //console.log(socket.server);
     
     socket.on('draw', function(position) {
         socket.broadcast.emit('draw', position);
@@ -19,6 +20,12 @@ io.on('connection', function(socket) {
         console.log('received guess: ', guess);
         socket.broadcast.emit('guess', guess);
     })
+    
+    socket.on('disconnect', function() {
+        console.log(socket.id, 'disconnected');
+    })
 })
+
+
 
 server.listen(process.env.PORT || 8080);
